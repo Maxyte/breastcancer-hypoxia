@@ -1,0 +1,3 @@
+[submodule "pycogaps"]
+	path = pycogaps
+	url = https://github.com/FertigLab/pycogaps.git
