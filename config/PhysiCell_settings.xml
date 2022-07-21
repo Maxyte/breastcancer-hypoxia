@@ -139,7 +139,7 @@
 	</microenvironment_setup>
 	
 	<user_parameters>	    
-		<hypoxia_pers_time type="double" units="min" description="phenotype persistent time of GFP+ cells">INF</hypoxia_pers_time>
+		<hypoxia_pers_time type="double" units="min" description="phenotype persistent time of GFP+ cells">0</hypoxia_pers_time>
 		<fraction_rsp type="double" units="dimensionless" description="fraction of GFP+ cells with different migration bias (bias_green_rsp)">0.5</fraction_rsp>
         <bias_green_rsp type="double" units="dimensionless" description="migration bias for GFP + cells (for fraction_rsp)">0.5</bias_green_rsp>
         <hypoxyprobe type="bool" description="mark with hypoxyprobe">false</hypoxyprobe>
