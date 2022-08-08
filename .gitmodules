@@ -1,0 +1,3 @@
+[submodule "PhysiCell-model-builder"]
+	path = PhysiCell-model-builder
+	url = https://github.com/PhysiCell-Tools/PhysiCell-model-builder.git
