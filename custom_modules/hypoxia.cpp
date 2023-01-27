@@ -62,7 +62,12 @@
 */
 
 #include "./hypoxia.h"
-
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <sstream>
+#include <vector>
+#include <string>
 
 void create_cell_types( void )
 {
@@ -209,7 +214,50 @@ void setup_tissue( void )
 	double y = 0.0; 
 
 	
-    if( default_microenvironment_options.simulate_2D == true ){
+    if( default_microenvironment_options.simulate_2D == true ) /*{
+
+        // OPTION 1: read transcriptomics data
+
+std::ofstream data("coord897.csv", ios::in);
+if (!data.is_open()) {
+    std::cout << "Cannot open file.";
+}
+struct CellData {
+    std::string ID;
+    double x;
+    double y;
+    std::string hypoxic_condition;
+};
+
+std::vector <CellData> records;
+CellData temp;
+char partition{};
+
+while (std::getline(data, temp.ID, ';')) {
+    data >> temp.ID;
+    data >> partition;
+    data >> temp.x;
+    data >> partition;
+    data >> temp.y;
+    data >> partition;
+    data >> temp.hypoxic_condition;
+
+    // data.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    records.emplace_back(temp);
+}
+
+int n = 0;
+while (n <= records.size() - 1) {
+    pCell = create_cell();
+    pCell->assign_position(records[n].x, records[n].y, 0.0);
+    n++;
+        }
+    }
+*/
+// OPTION 2: quasi-random 2D cell distribution
+
+{
         int n = 0;
         while( y < tumor_radius )
         {
@@ -249,7 +297,8 @@ void setup_tissue( void )
             y += cell_spacing * sqrt(3.0)/2.0; 
             n++; 
         }
-	} else {
+	}
+ else {
         std::vector<std::vector<double>> positions = create_cell_sphere_positions(cell_radius,tumor_radius);
         for( int i=0; i < positions.size(); i++ ){
             pCell = create_cell(); // tumor cell 
